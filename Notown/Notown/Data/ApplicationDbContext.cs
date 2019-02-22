@@ -20,6 +20,7 @@ namespace Notown.Data
     public DbSet<Album> Albums { get; set; }
     public DbSet<Instrument> Instruments { get; set; }
     public DbSet<Song> Songs { get; set; }
+    public DbSet<MuscianSongs> MusicianSong { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
