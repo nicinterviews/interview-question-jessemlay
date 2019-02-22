@@ -12,7 +12,7 @@ namespace Notown.Data
   {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options)
-    {
+    {      
     }
 
     public DbSet<Musician> Musicians { get; set; }

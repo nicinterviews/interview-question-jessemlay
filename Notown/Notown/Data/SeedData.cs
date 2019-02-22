@@ -19,28 +19,25 @@ namespace Notown.Data
 
 
         //Look for any Musicians
-        if (context.Musicians.Any())
-        {
-          return; // DB has already been seeded
-        }
+       
 
-        var musicians = SeedData.GetMusicians().ToArray();
+        var musicians = SeedData.GetMusicians(context).ToArray();
         context.Musicians.AddRange(musicians);
         context.SaveChanges();
 
-        var addresses = SeedData.GetAddresses().ToArray();
+        var addresses = SeedData.GetAddresses(context).ToArray();
         context.Addresses.AddRange(addresses);
         context.SaveChanges();
 
-        var albums = SeedData.GetAlbums().ToArray();
+        var albums = SeedData.GetAlbums(context).ToArray();
         context.Albums.AddRange(albums);
         context.SaveChanges();
 
-        var songs = SeedData.GetSongs().ToArray();
+        var songs = SeedData.GetSongs(context).ToArray();
         context.Songs.AddRange(songs);
         context.SaveChanges();
 
-        var instruments = SeedData.GetInstruments().ToArray();
+        var instruments = SeedData.GetInstruments(context).ToArray();
         context.Instruments.AddRange(instruments);
         context.SaveChanges();
       }
@@ -62,7 +59,7 @@ namespace Notown.Data
       return musicians;
     }
 
-    public static List<Address> GetAddresses()
+    public static List<Address> GetAddresses(ApplicationDbContext context)
     {
       List<Address> addresses = new List<Address>
       {
@@ -106,8 +103,7 @@ namespace Notown.Data
         new Song
         {
           Author = "the author",
-          Title = "Way Way Cooler",
-          Musicians = context.Musicians.Take(1).ToList()
+          Title = "Way Way Cooler",        
         }
       };
 

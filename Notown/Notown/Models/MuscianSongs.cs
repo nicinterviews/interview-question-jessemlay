@@ -5,10 +5,9 @@ using System.Threading.Tasks;
 
 namespace Notown.Models
 {
-    public class Song
+    public class MuscianSongs
     {
-    public int Id { get; set; }
-    public string Title { get; set; }
-    public string Author { get; set; }   
+    public Musician Musician { get; set; }
+    public Song Song { get; set; }
   }
 }
